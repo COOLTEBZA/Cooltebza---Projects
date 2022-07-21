@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ 
+    <title>Stop Watch</title>
+    <style>body {
+	height: ; 
+	width:;
+	margin-top:10%;
+	margin-left:20%;
+
+	}
+	.blink,
+	#hours,
+	#minutes,
+	#seconds,
+	#milliseconds{font-size: 40px;font-style:bold; text-align: center;}
+	.unblink {
+  width: 100%;
+  padding: 25px;
+  background-color: coral;
+  color: white;
+  font-size: 25px;
+}
+
+	#hours,
+	#minutes,
+	#seconds
+	{height:50px;width:60px;}
+	
+	#milliseconds{height:50px;width:90px;}
+	
+	#containerStopWatch{
+	width: 95%;
+	height: 250px;
+	background-color: block;
+	border-radius: 30px;
+	}
+	
+	#resetStopWatch,
+	#stopPauseStopWatch,
+	#startStopWatch{
+	font-size: 40px;
+	}
+	#resetStopWatch{
+	
+	}
+	#stopPauseStopWatch{
+	
+	}
+	#startStopWatch{
+
+	}
+	.titleSec{font-size: 10px;}
+	.spaceSec{padding-right: 56px;}
+	</style>
+	
+	
+	
+</head>
+<body> 
+
+
+
+<div id="containerStopWatch">
+<div>
+<span id="" class="titleSec">hours</span>
+<span id="" class="spaceSec"></span>
+<span id="" class="titleSec">minutes</span>
+<span id="" class="spaceSec"></span>
+<span id="" class="titleSec">seconds</span>
+<span id="" class="spaceSec"></span>
+<span id="" class="titleSec">milliseconds</span>
+</div>
+<input id="hours" type="number" maxlength="2"min="00" max="23" value="00">
+<span id="blink0" class="blink">:</span>
+<input id="minutes" type="number" maxlength="2"min="00" max="60" value="00">
+<span id="blink1" class="blink">:</span>
+<input id="seconds" type="number" maxlength="2"min="00" max="60" value="00">
+<span id="blink2" class="blink">:</span>
+<input id="milliseconds" type="number" maxlength="3"min="000" max="600" value="000">
+
+<div  class="controls">
+<button id="resetStopWatch" onclick="resetStopWatch()">reset</button>
+<button id="stopPauseStopWatch" onclick="stopPauseStopWatch()">stop</button>
+<button id="startStopWatch" onclick="startStopWatch()">start</button>
+</div>
+</div>
+
+
+<script >
+var hoursBtn =document.getElementById('hours');
+var minutesBtn =document.getElementById('minutes');
+var secondsBtn =document.getElementById('seconds');
+var millisecondsBtn =document.getElementById('milliseconds');
+
+var xT1 = parseInt(hoursBtn.value) ;
+var xT2 = parseInt(minutesBtn.value) ;
+var xT3 = parseInt(secondsBtn.value) ;
+var xT4 = parseInt(millisecondsBtn.value) ;
+
+
+timerInterval2 = window.setInterval(checkStopWatch0, 100);
+
+function startStopWatch(){
+//timerInterval = window.setInterval(stopwatch3, 1000);
+
+/*
+String.fromCharCode(49) returns "1"
+String.fromCharCode(97) returns "a"
+String.fromCharCode((96 <= key && key <= 105)? key-48 : key)
+keyboardMap[];
+
+*/
+timerInterval2 = window.setInterval(stopwatch4, 100);
+
+xT1 = parseInt(hoursBtn.value) ;
+xT2 = parseInt(minutesBtn.value) ;
+xT3 = parseInt(secondsBtn.value) ;
+xT4 = parseInt(millisecondsBtn.value) ;
+}
+
+
+var blink;
+for(var i = 0; i < 3; i++){ blink=document.getElementById('blink'+i);}
+
+
+function stopwatch1(){xT1++;hoursBtn.value=xT1;if(hoursBtn.value == "24"){
+
+xT1 =00;
+hoursBtn.value="00";
+}}
+function stopwatch2(){xT2++;minutesBtn.value=xT2;if(minutesBtn.value == "60"){
+stopwatch1();
+xT2 =00;
+minutesBtn.value="00";
+}}
+function stopwatch3(){xT3++;secondsBtn.value=xT3;if(secondsBtn.value == "60"){
+stopwatch2();
+xT3 =00;
+secondsBtn.value="00";
+}}
+function stopwatch4(){xT4++;millisecondsBtn.value=xT4;
+for(var i = 0; i < 61; i++){ if(millisecondsBtn.value == i+"0"){ stopwatch3(); } }
+if(millisecondsBtn.value == "600"){
+xT4 =0;
+millisecondsBtn.value="00";
+}}
+
+window.onkeydown = function(event) {
+
+  //console.log("Unicode CHARACTER code: " + event.keyCode);
+if (window.event.keyCode == "107"){event.preventDefault();}else
+if (window.event.keyCode == "109"){event.preventDefault();}else
+if (window.event.keyCode == "106"){event.preventDefault();}else
+if (window.event.keyCode == "111"){event.preventDefault();}else
+if (window.event.keyCode == "187"){event.preventDefault();}else
+if (window.event.keyCode == "189"){event.preventDefault();}else
+if (window.event.keyCode == "192"){event.preventDefault();}else
+ 
+if (window.event.keyCode == "220"){event.preventDefault();}else
+if (window.event.keyCode == "221"){event.preventDefault();}else
+if (window.event.keyCode == "219"){event.preventDefault();}else
+if (window.event.keyCode == "186"){event.preventDefault();}else
+ 
+if (window.event.keyCode == "222"){event.preventDefault();}else
+if (window.event.keyCode == "188"){event.preventDefault();}else
+if (window.event.keyCode == "190"){event.preventDefault();}else
+if (window.event.keyCode == "191"){event.preventDefault();} 
+}
+
+
+hoursBtn.onkeyup = function(){if(hoursBtn.value > 23 || 
+hoursBtn.value < 0 || 
+hoursBtn.value.length > 2 || 
+hoursBtn.value.length < 0
+){
+hoursBtn.value="00";
+}else{console.log("false");}}
+minutesBtn.onkeyup = function(){if(minutesBtn.value > 60 || 
+minutesBtn.value < 0 || 
+minutesBtn.value.length > 2 || 
+minutesBtn.value.length < 0){
+minutesBtn.value="00";
+}else{console.log("false");}}
+secondsBtn.onkeyup = function(){if(secondsBtn.value > 60 || 
+secondsBtn.value < 0 || 
+secondsBtn.value.length > 2 || 
+secondsBtn.value.length < 0){
+secondsBtn.value="00";
+}else{console.log("false");}}
+millisecondsBtn.onkeyup = function(){if(millisecondsBtn.value > 600 || 
+millisecondsBtn.value < 0 || 
+millisecondsBtn.value.length > 3 || 
+millisecondsBtn.value.length < 0){
+millisecondsBtn.value="000";
+}else{console.log("false");}}
+
+function checkStopWatch(){
+
+for(var i = 0; i < 3; i++){var blinks =document.getElementById('blink'+i);
+if(blinks.style.color === "black"){
+blinks.style.color= "white";
+}else{blinks.style.color= "black";}
+}
+
+
+}
+
+function checkStopWatch0(){
+
+
+}
+
+function resetStopWatch(){
+
+
+window.clearInterval(timerInterval2);
+hoursBtn.value="00";
+minutesBtn.value="00";
+secondsBtn.value="00";
+millisecondsBtn.value="000";
+}
+function stopPauseStopWatch(){
+
+window.clearInterval(timerInterval2);
+}
+
+
+</script>
+</body>
+<!--Logs version 0.1 -->
+<!--Author by https://cooltebza.github.io Stop Watch 00:21 2022/07/21-->
+<!--100% working supports latest browsers if not visit again in future this will be updated-->
+
+</html>

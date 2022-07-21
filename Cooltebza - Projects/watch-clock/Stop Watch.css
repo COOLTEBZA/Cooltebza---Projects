@@ -1,0 +1,50 @@
+body {
+	height: ; 
+	width:;
+	margin-top:10%;
+	margin-left:20%;
+
+	}
+	.blink,
+	#hours,
+	#minutes,
+	#seconds,
+	#milliseconds{font-size: 40px;font-style:bold; text-align: center;}
+	.unblink {
+  width: 100%;
+  padding: 25px;
+  background-color: coral;
+  color: white;
+  font-size: 25px;
+}
+
+	#hours,
+	#minutes,
+	#seconds
+	{height:50px;width:60px;}
+	
+	#milliseconds{height:50px;width:90px;}
+	
+	#containerStopWatch{
+	width: 95%;
+	height: 250px;
+	background-color: block;
+	border-radius: 30px;
+	}
+	
+	#resetStopWatch,
+	#stopPauseStopWatch,
+	#startStopWatch{
+	font-size: 40px;
+	}
+	#resetStopWatch{
+	
+	}
+	#stopPauseStopWatch{
+	
+	}
+	#startStopWatch{
+
+	}
+	.titleSec{font-size: 10px;}
+	.spaceSec{padding-right: 56px;}
